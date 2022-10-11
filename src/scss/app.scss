@@ -3,3 +3,12 @@
 @import 'base/mixins';
 @import 'base/globales';
 @import 'base/utilidades';
+@import 'base/botones';
+
+/** UI **/
+@import 'layout/header.scss';
+@import 'layout/footer.scss';
+@import 'layout/navegacion';
+@import 'layout/iconos';
+@import 'layout/anuncios';
+@import 'layout/contactar';
