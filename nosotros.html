@@ -15,19 +15,66 @@
                     <img src="build/img/logo.svg" alt="logotipo de Bienes Raices">
                 </a>
 
-                <nav class="navegacion">
-                    <a href="nosotros.html">Nosotros</a>
-                    <a href="anuncios.html">Anuncios</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contacto.html">Contacto</a>
-                </nav>
+                <div class="mobile-menu">
+                    <img src="build/img/barras.svg" alt="icono menu responsive">
+                </div>
+                <div class="derecha">
+                    <img class="dark-mode-btn" src="build/img/dark-mode.svg" alt="icono dark-mode">
+                    <nav class="navegacion">
+                        <a href="nosotros.html">Nosotros</a>
+                        <a href="anuncios.html">Anuncios</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contacto.html">Contacto</a>
+                    </nav>
+                </div>
             </div> <!--.barra-->
         </div>
     </header>
 
     <main class="contenedor seccion">
-        <h1>Nosotros</h1>
+        <h1>Conoce sobre Nosotros</h1>
+
+        <div class="contenido-nosotros">
+            <div class="imagen">
+                <picture>
+                    <source srcset="build/img/nosotros.webp" type="image/webp">
+                    <source srcset="buil/img/nosotros.jpg" type="image/jpeg">
+                    <img src="build/img/nosotros.jpg" alt="Sobre Nosotros" loading="lazy">
+                </picture>
+            </div>
+            <div class="texto-nosotros">
+                <blockquote>
+                    25 años de experiencia
+                </blockquote>
+
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque recusandae assumenda delectus magni perferendis, vel iure quidem hic laudantium nobis. Est quos, corrupti similique dicta aliquid temporibus ratione delectus blanditiis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque recusandae assumenda delectus magni perferendis, vel iure quidem hic laudantium nobis. Est quos, corrupti similique dicta aliquid temporibus ratione delectus blanditiis!</p>
+
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque recusandae assumenda delectus magni perferendis, vel iure quidem hic laudantium nobis. Est quos, corrupti similique dicta aliquid temporibus ratione delectus blanditiis!</p>
+            </div>
+        </div>
     </main>
+
+    <section class="contenedor seccion">
+        <h1>Más Sobre Nosotros</h1>
+        <div class="iconos-nosotros">
+            <div class="icono">
+                <img src="build/img/icono1.svg" alt="icono seguridad" loading="lazy">
+                <h3>Seguridad</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nobis blanditiis at natus dolores soluta pariatur iste, ea cum porro inventore fuga fugit ab. Ut sint eligendi aperiam et ducimus!</p>
+            </div>
+            <div class="icono">
+                <img src="build/img/icono2.svg" alt="icono precio" loading="lazy">
+                <h3>Precio</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nobis blanditiis at natus dolores soluta pariatur iste, ea cum porro inventore fuga fugit ab. Ut sint eligendi aperiam et ducimus!</p>
+            </div>
+            <div class="icono">
+                <img src="build/img/icono3.svg" alt="icono tiempo" loading="lazy">
+                <h3>Tiempo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nobis blanditiis at natus dolores soluta pariatur iste, ea cum porro inventore fuga fugit ab. Ut sint eligendi aperiam et ducimus!</p>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer seccion">
         <div class="contenedor contenedor-footer">

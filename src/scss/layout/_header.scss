@@ -16,11 +16,11 @@
         @include tablet {
             min-height: 70rem;
         }
-    }
 
-    .contenido-header {
-        @include tablet {
-            min-height: 70rem;
+        .contenido-header {
+            @include tablet {
+                min-height: 70rem;
+            }
         }
     }
 }
