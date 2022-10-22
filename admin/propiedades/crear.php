@@ -23,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /*echo "<pre>";
     var_dump($_POST);
+    echo "</pre>";
+
+    echo "<pre>";
+    var_dump($_FILES);
     echo "</pre>";*/
 
     // mysqli_real_escape_string sirve para desahibilitar el cross site scripting (inyeccion de codigo sql)
@@ -64,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Validar por tamaño (100Kb maximo)
-    $medida = 1000 * 100;
+    $medida = 1000 * 1000;
 
     if($imagen['size'] > $medida ) {
         $errores[] = 'La Imagen es muy Pesada';
@@ -76,14 +80,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Revisar si el arreglo de errores esta vacio
     if(empty($errores)){
+        /** SUBIDA DE ARCHIVOS
+         *
+         * Crear Carpeta */
+        $carpetaImagenes = '../../images/'; // Asignamos la dirección de la carpeta
+
+        if(!is_dir($carpetaImagenes)){ // Validamos si no existe la carpeta
+            mkdir($carpetaImagenes); // Creamos la carpeta con la ruta especifica
+        }
+
+        /** SUBIDA DE ARCHIVOS
+         *
+         * Generar un nombre único del archivo */
+        $nombreImagen = md5( uniqid( rand(), true) ) . ".jpg";
+
+        /** SUBIDA DE ARCHIVOS
+         *
+         * Subir la Imagen */
+
+         move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+
+
         // Insertar en la base de datos
-        $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedorid) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorid')";
+        $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedorid) VALUES ('$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado','$vendedorid')";
 
 
         $resultado = mysqli_query($db, $query);
         if ($resultado) {
             // Redireccionar al usuario
-            header('Location: /admin');
+            header('Location: /admin?resultado=1');
         }
     }
 
@@ -94,7 +119,7 @@ incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion">
-    <h1>Crear</h1>
+    <h1>Crear Anuncio</h1>
 
     <a href="/admin" class="boton boton-verde">Volver</a>
 
