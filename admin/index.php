@@ -21,6 +21,8 @@
     <h1>Administrador de Bienes Raices</h1>
     <?php if( intval( $resultado) === 1): ?>
         <p class="alerta exito"> Registro Exitoso!</p>
+    <?php elseif( intval( $resultado) === 2): ?>
+        <p class="alerta exito"> Actualización Exitosa!</p>
     <?php endif; ?>
     <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>
 
@@ -43,7 +45,7 @@
                 <td>$ <?php echo $propiedad['precio']; ?> </td>
                 <td>
                     <a class="boton-rojo-block" href="#">Eliminar</a>
-                    <a class="boton-amarillo-block" href="#">Actualizar</a>
+                    <a class="boton-amarillo-block" href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>">Actualizar</a>
                 </td>
             </tr>
         <?php endwhile; ?>
