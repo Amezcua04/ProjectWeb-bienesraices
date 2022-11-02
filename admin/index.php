@@ -1,4 +1,10 @@
 <?php
+    require '../includes/funciones.php';
+    $auth = autenticado();
+
+    if(!$auth){
+        header('Location: /');
+    }
 
     // Importar la conexión de la BD
     require '../includes/config/database.php';
@@ -37,7 +43,6 @@
     }
 
     // INCLUYE UN TEMPLATE
-    require '../includes/funciones.php';
     incluirTemplate('header');
 ?>
 
